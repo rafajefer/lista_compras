@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,5 +8,15 @@
 <body>
     <h1>Lista de compras</h1>
     <p>super teste</p>
+    <button id="btnTestar">Testar API</button>
+    <p id="resposta"></p>
+
+    <script>
+        document.getElementById('btnTestar').addEventListener('click', async () => {
+            const resposta = await fetch('/api/ping');
+            const dados = await resposta.json();
+            document.getElementById('resposta').textContent = dados.message;
+        });
+    </script>
 </body>
 </html>
